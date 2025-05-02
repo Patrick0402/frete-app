@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/frete', [FreteController::class, 'create'])->name('frete.create');
     Route::post('/frete', [FreteController::class, 'store'])->name('frete.store');
     Route::get('/fretes', [FreteController::class, 'index'])->name('frete.index');
+    Route::get('/fretes/pdf', [FreteController::class, 'exportPdf'])->name('frete.pdf');
 });
 
 require __DIR__.'/auth.php';

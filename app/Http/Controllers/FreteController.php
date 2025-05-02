@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Frete;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class FreteController extends Controller
 {
@@ -64,5 +66,13 @@ class FreteController extends Controller
 
         // Redireciona para a view de resultado
         return view('frete.result', compact('frete'));
+    }
+
+    public function exportPdf()
+    {
+        $fretes = Frete::all();
+
+        $pdf = Pdf::loadView('frete.pdf', compact('fretes'));
+        return $pdf->download('fretes.pdf');
     }
 }
