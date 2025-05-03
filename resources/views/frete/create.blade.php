@@ -5,6 +5,8 @@
 @section('header', 'Cadastro de Frete')
 
 @section('content')
+    <a href="{{ route('dashboard') }}" class="btn btn-secondary" style="margin-bottom: 15px;">Voltar à Dashboard</a>
+
     <form action="{{ route('frete.store') }}" method="POST">
         @csrf
         <label for="nome_cliente">Nome do Cliente:</label>
