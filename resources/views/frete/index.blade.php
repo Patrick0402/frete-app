@@ -5,11 +5,6 @@
 @section('header', 'Lista de Fretes')
 
 @section('content')
-    <div style="margin-bottom: 15px;">
-        <a href="{{ route('dashboard') }}" class="btn btn-secondary">Voltar à Dashboard</a>
-        <a href="{{ route('frete.pdf') }}" class="btn btn-primary">Exportar PDF</a>
-    </div>
-
     <form method="GET" action="{{ route('frete.index') }}">
         <label for="tipo_frete">Tipo de Frete:</label>
         <select id="tipo_frete" name="tipo_frete">
