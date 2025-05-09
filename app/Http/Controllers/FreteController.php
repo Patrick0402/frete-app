@@ -22,8 +22,12 @@ class FreteController extends Controller
             $query->where('nome_cliente', 'like', '%' . $request->nome_cliente . '%');
         }
     
-        if ($request->filled('valor_min') && $request->filled('valor_max')) {
-            $query->whereBetween('valor_total', [$request->valor_min, $request->valor_max]);
+        if ($request->filled('valor_min')) {
+            $query->where('valor_total', '>=', $request->valor_min);
+        }
+    
+        if ($request->filled('valor_max')) {
+            $query->where('valor_total', '<=', $request->valor_max);
         }
     
         $fretes = $query->get();
